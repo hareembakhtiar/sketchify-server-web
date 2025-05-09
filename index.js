@@ -13,6 +13,10 @@ const io = new Server(server, {
     },
 })
 
+app.get('/', (req, res) => {
+  res.send('Hey this is my API running 🥳')
+})
+
 // Store countdown states per room
 const roomStates = {};
 
