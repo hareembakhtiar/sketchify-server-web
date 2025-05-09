@@ -3,7 +3,7 @@
   "redirects": [
     {
       "source": "/",
-      "destination": "https://your-frontend-url.com",
+      "destination": "https://sketchify-client-web.vercel.app",
       "permanent": true
     }
   ]
