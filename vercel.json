@@ -1,15 +1,10 @@
 {
-  "version": 2,
-  "builds": [
+  "rewrites": [{ "source": "/socket.io/", "destination": "/api" }],
+  "redirects": [
     {
-      "src": "index.js",
-      "use": "@now/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "index.js"
+      "source": "/",
+      "destination": "https://your-frontend-url.com",
+      "permanent": true
     }
   ]
 }
