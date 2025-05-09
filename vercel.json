@@ -1,10 +1,16 @@
 {
-  "rewrites": [{ "source": "/socket.io/", "destination": "/api" }],
-  "redirects": [
+  "version": 2,
+  "rewrites": [
+    { "source": "/api/socket", "destination": "/api/socket.js" },
+    { "source": "/socket.io/(.*)", "destination": "/api/socket.js" }
+  ],
+  "headers": [
     {
-      "source": "/",
-      "destination": "https://sketchify-client-web.vercel.app",
-      "permanent": true
+      "source": "/api/socket",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "https://sketchify-client-web.vercel.app" },
+        { "key": "Access-Control-Allow-Credentials", "value": "true" }
+      ]
     }
   ]
 }
