@@ -161,6 +161,11 @@ io.on("connection", (socket)=> {
 
 });
 
+if(process.env.NODE_ENV !== "production"){
+    
 server.listen(3001, ()=>{
     console.log("✔️ Server listening on port 3001")
 })
+}
+
+export default server;
