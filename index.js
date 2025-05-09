@@ -2,11 +2,14 @@ const express = require('express')
 const http = require('http')
 const app = express()
 const server = http.createServer(app)
+const env = require('dotenv').config()
 
 const {Server} = require('socket.io')
 const io = new Server(server, {
     cors: {
-        origin: "*"
+        origin: process.env.FRONTEND_URL,
+        methods: ["GET", "POST"],
+        credentials: true,
     },
 })
 
@@ -161,11 +164,8 @@ io.on("connection", (socket)=> {
 
 });
 
-if(process.env.NODE_ENV !== "production"){
     
 server.listen(3001, ()=>{
-    console.log("✔️ Server listening on port 3001")
+    console.log("✔️ Server listening on port 3000")
 })
-}
 
-export default server;
